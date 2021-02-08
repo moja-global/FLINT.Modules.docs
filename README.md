@@ -1,7 +1,7 @@
 # FLINT Modules Documentation
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
-https://flint-modules-documetation.readthedocs.io/en/latest/
+https://flint-modules-docs.readthedocs.io/en/latest/
 
 ## How to Get Involved?  
 
