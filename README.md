@@ -3,8 +3,6 @@
 
 https://flint-modules-documetation.readthedocs.io/en/latest/
 
-Text 
-
 ## How to Get Involved?  
 
 moja global welcomes a wide range of contributions as explained in [Contributing document](https://github.com/moja-global/About-moja-global/blob/master/CONTRIBUTING.md) and in the [About moja-global Wiki](https://github.com/moja-global/.github/wiki).  
