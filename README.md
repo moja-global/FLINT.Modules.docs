@@ -1,7 +1,10 @@
 # FLINT Modules Documentation
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
-https://flint-modules-docs.readthedocs.io/en/latest/
+#### The documentation is hosted on ReadTheDocs at https://flint-modules-docs.readthedocs.io/en/latest/
+
+This repository is used to host the documentation and guides to develop FLINT modules from scratch.  
+The latest version of the documentation is on the develop branch while the release version is on the master branch.
 
 ## How to Get Involved?  
 
