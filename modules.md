@@ -2,7 +2,38 @@
 
 # **Metric and carbon calculation modules**
 
+# Table of contents
 
+- [**Metric and carbon calculation modules**](#metric-and-carbon-calculation-modules)
+- [**Goal of this document**](#goal-of-this-document)
+- [**Glossary**](#glossary)
+- [**Background**](#background)
+  - [**_What are modules?_**](#what-are-modules)
+  - [**_What does a Module do?_**](#what-does-a-module-do)
+  - [**_Types of FLINT modules:_**](#types-of-flint-modules)
+  - [**_What are Operations?_**](#what-are-operations)
+  - [**_What are Pools?_**](#what-are-pools)
+  - [**_What are Events?_**](#what-are-events)
+  - [**_What kinds of modules are there?_**](#what-kinds-of-modules-are-there)
+  - [**_Why are modules important?_**](#why-are-modules-important)
+  - [**_How do we import a module?_**](#how-do-we-import-a-module)
+  - [**_How are modules configured during a FLINT run?_**](#how-are-modules-configured-during-a-flint-run)
+  - [**_How do modules interact?_**](#how-do-modules-interact)
+- [**Developing modules**](#developing-modules)
+  - [**_What are the typical components of a module?_**](#what-are-the-typical-components-of-a-module)
+  - [**_How can existing modules be combined?_**](#how-can-existing-modules-be-combined)
+  - [**_How do I create a new module?_**](#how-do-i-create-a-new-module)
+  - [**Choosing a language**](#choosing-a-language)
+- [**Creating and adding a module to FLINT**](#creating-and-adding-a-module-to-flint)
+  - [**libraryfactory.h**](#libraryfactoryh)
+  - [**libraryfactory.cpp**](#libraryfactorycpp)
+  - [**testmodule.h**](#testmoduleh)
+  - [**testmodule.cpp**](#testmodulecpp)
+- [**Configuration files in FLINT**](#configuration-files-in-flint)
+- [**Disturbance Events**](#disturbance-events)
+- [**_What are Disturbance Events?_**](#what-are-disturbance-events)
+- [**System Providers in FLINT**](#system-providers-in-flint)
+- [**Key Components of the FLINT**](#key-components-of-the-flint)
 
 
 # **Goal of this document**
@@ -113,7 +144,7 @@ Two common places to find modules:
 The second half of this document describes creating a custom module.
 
 
-## How are modules configured during a FLINT run? 
+## **_How are modules configured during a FLINT run?_**
 Modules are configured with the help of config files in JSON format. 
 
 
@@ -129,9 +160,9 @@ This might be relevant: [https://github.com/moja-global/About_moja_global/issues
 
 There are three main components of a module
 
-Input data: For each calculation the 
+Input data: Data inputs for accurate calculations.
 
-Algorithms: The equations that are used to calculate the stocks and flows of the metric
+Algorithms: The equations that are used to calculate the stocks and flows of the metric.
 
 Output data: Data results handed back to the FLINT following the calculation. 
 
@@ -191,7 +222,7 @@ FLINT can be used to make familiar models spatially explicit. The module templat
 
 For large runs, calling external libraries will always be slower than transcribing the model to C++. We therefore focus on writing C++ in this document but will revisit this section in the future.
 
-### **Creating and adding a module to FLINT**
+# **Creating and adding a module to FLINT**
 
 Link to the moja.modules.template source code: [https://github.com/moja-global/FLINT.Example/commits/template](https://github.com/moja-global/FLINT.Example/commits/template) 
 
@@ -482,7 +513,7 @@ In the module.cpp file
 
   Source file testmodule.cpp :https://github.com/moja-global/FLINT/blob/develop/Source/moja.flint/src/testmodule.cpp
 
-## libraryfactory.h
+## **libraryfactory.h**
 
 Required imports
 
@@ -917,7 +948,7 @@ operation->addTransfer(_pool1, _pool2, ratio_1)
 }  // namespace moja
 ```
 
-## Configuration files in FLINT 
+## **Configuration files in FLINT** 
 
 
 While running moja.cli, we pass the config file as a parameter to the FLINT. The config variable used in the module source code is of the DynamicObject type (a type from POCO library). This config variable holds the whole JSON config file and then is used to modify the simulation.
@@ -1296,7 +1327,7 @@ Key components of the FLINT system are:
     
     *   A Simulation Unit is a unit for which a module is applied. A Simulation Unit can represent a spatial area, such as a pixel or forest stand, or it can represent an emissions source, such as livestock. Where the Simulation Unit refers to a geographically referenced area, it is known as a Land Unit.
     *   Within the databases and data-layers underpinning the FLINT, there are attributed values that describe the characteristics of each Simulation Unit. For example, for a Land Unit there may be information on the unit’s area, land type, age of vegetation, species and carbon pools. The overall framework of FLINT manages the processing of Simulation Units over time. While Simulation Units are the basis of all simulations run in FLINT, they are rarely used for reporting purposes (see Local Domain).
-*   ### **Local Domain **
+*   ### **Local Domain**
     
     *   Sitting above Simulation Units, is the Local Domain. The Local Domain is the collective of Simulation Units that are bound for a specific purpose. This can be, for example, to report on the changes in carbon stocks for a particular region.
     *   Within FLINT, Local Domains have three main functions. Firstly, they are used to ‘house’ the variable values for all the simulation units which they represent. Secondly, through a local domain controller they assign these values to the simulation units during a simulation. Thirdly, they receive the output simulation units, and up-date the domain characteristics.
@@ -1461,7 +1492,7 @@ void TestModule::onTimingStep() {
 
 Hence data from `_landUnitData` can be stored in a variable of class `IVariable`.
 
-*   **Common Data: Variables (IFlintData)**
+*   **Common Data: Variables (`IFlintData`)**
     *   `FlintData` allows for a more complex data structure that can be shared across Modules. Giving more that just the single value() returned by a Transform.
 
         With Variables and Transforms we use the method ->value() ?   allowing use to substitute either of them. `IFlintData` doesn't have this method, so allows more complex object use - if you know what type you're looking for.
