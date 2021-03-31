@@ -1,7 +1,7 @@
 # FLINT Modules Documentation
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
-#### The documentation is hosted on ReadTheDocs at https://flint-modules-docs.readthedocs.io/en/latest/
+#### The documentation is hosted on GitHub at https://github.com/moja-global/FLINT_Modules_docs/blob/develop/modules.md
 
 This repository is used to host the documentation and guides to develop FLINT modules from scratch.  
 The latest version of the documentation is on the develop branch while the release version is on the master branch.
