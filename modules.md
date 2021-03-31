@@ -8,22 +8,22 @@
 - [**Goal of this document**](#goal-of-this-document)
 - [**Glossary**](#glossary)
 - [**Background**](#background)
-  - [**_What are modules?_**](#_what-are-modules_)
-  - [**_What does a Module do?_**](#_what-does-a-module-do_)
-  - [**_Types of FLINT modules:_**](#_types-of-flint-modules_)
-  - [**_What are Operations?_**](#_what-are-operations_)
-  - [**_What are Pools?_**](#_what-are-pools_)
-  - [**_What are Events?_**](#_what-are-events_)
-  - [**_What kinds of modules are there?_**](#_what-kinds-of-modules-are-there_)
-  - [**_Why are modules important?_**](#_why-are-modules-important_)
-  - [**_How do we import a module?_**](#_how-do-we-import-a-module_)
-  - [**_How are modules configured during a FLINT run?_**](#_how-are-modules-configured-during-a-flint-run_)
-  - [**_How do modules interact?_**](#_how-do-modules-interact_)
+  - [**_What are modules?_**](#what-are-modules)
+  - [**_What does a Module do?_**](#what-does-a-module-do)
+  - [**_Types of FLINT modules:_**](#types-of-flint-modules)
+  - [**_What are Operations?_**](#what-are-operations)
+  - [**_What are Pools?_**](#what-are-pools)
+  - [**_What are Events?_**](#what-are-events)
+  - [**_What kinds of modules are there?_**](#what-kinds-of-modules-are-there)
+  - [**_Why are modules important?_**](#why-are-modules-important)
+  - [**_How do we import a module?_**](#how-do-we-import-a-module)
+  - [**_How are modules configured during a FLINT run?_**](#how-are-modules-configured-during-a-flint-run)
+  - [**_How do modules interact?_**](#how-do-modules-interact)
 - [**Developing modules**](#developing-modules)
-  - [**_What are the typical components of a module?_**](#_what-are-the-typical-components-of-a-module_)
-  - [**_How can existing modules be combined?_**](#_how-can-existing-modules-be-combined_)
-  - [**_How do I create a new module?_**](#_how-do-i-create-a-new-module_)
-  - [**_Choosing a language_**](#_choosing-a-language_)
+  - [**_What are the typical components of a module?_**](#what-are-the-typical-components-of-a-module)
+  - [**_How can existing modules be combined?_**](#how-can-existing-modules-be-combined)
+  - [**_How do I create a new module?_**](#how-do-i-create-a-new-module)
+  - [**Choosing a language**](#choosing-a-language)
 - [**Creating and adding a module to FLINT**](#creating-and-adding-a-module-to-flint)
   - [**libraryfactory.h**](#libraryfactoryh)
   - [**libraryfactory.cpp**](#libraryfactorycpp)
@@ -31,8 +31,8 @@
   - [**testmodule.cpp**](#testmodulecpp)
 - [**Configuration files in FLINT**](#configuration-files-in-flint)
 - [**Disturbance Events**](#disturbance-events)
-- [**_What are Disturbance Events?_**](#_what-are-disturbance-events_)
-- [***System Providers in FLINT***](#system-providers-in-flint)
+- [**_What are Disturbance Events?_**](#what-are-disturbance-events)
+- [**System Providers in FLINT**](#system-providers-in-flint)
 - [**Key Components of the FLINT**](#key-components-of-the-flint)
 
 
@@ -1492,7 +1492,7 @@ void TestModule::onTimingStep() {
 
 Hence data from `_landUnitData` can be stored in a variable of class `IVariable`.
 
-*   **Common Data: Variables (IFlintData)**
+*   **Common Data: Variables (`IFlintData`)**
     *   `FlintData` allows for a more complex data structure that can be shared across Modules. Giving more that just the single value() returned by a Transform.
 
         With Variables and Transforms we use the method ->value() ?   allowing use to substitute either of them. `IFlintData` doesn't have this method, so allows more complex object use - if you know what type you're looking for.
