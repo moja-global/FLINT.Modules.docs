@@ -2,6 +2,8 @@
 
 # **Metric and carbon calculation modules**
 
+Author: [Shubham K](https://github.com/shubhamkarande13)
+
 # Table of contents
 
 - [**Metric and carbon calculation modules**](#metric-and-carbon-calculation-modules)
