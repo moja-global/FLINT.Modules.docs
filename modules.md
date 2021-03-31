@@ -302,7 +302,7 @@ And similarly for all included transforms,add
   ```
 
 This code will create an instance of the IModule class or ITransform class.
-The purpose of the LibraryFactory is to tell the framework what to construct (and how to construct it) when one of those JSON config files asks for something by its key.Eg. To use `**LocationIdxFromFlintDataTransform**` we write the code
+The purpose of the LibraryFactory is to tell the framework what to construct (and how to construct it) when one of those JSON config files asks for something by its key.Eg. To use `LocationIdxFromFlintDataTransform` we write the code
 
 ```c++
  outTransformRegistrations[index++] =
@@ -1211,6 +1211,8 @@ The simplest way to think of a disturbance event is as a table where carbon is m
    </td>
   </tr>
 </table>
+
+
 ### **Changing fluxes**
 
 Often an event will impact the functioning of an ecosystem. For example, it may change plant growth (such as through thinning responses or fertiliser) or decomposition rates. Modules will need to know when such events have occurred.
@@ -1219,7 +1221,7 @@ Often an event will impact the functioning of an ecosystem. For example, it may 
 
 In some cases an event will change the ecosystem type. For example, following deforestation the ecosystem will change from forest to agriculture. This will lead to new modules being called and older modules being ignored.  
 
-### **Disturbances in FLINT **
+### **Disturbances in FLINT**
 
 *   During a FLINT run, the Sequencer handles the time with timesteps with an event queue. Disturbance events break the normal sequence of events in the event queue.   \
 Examples: 
@@ -1470,7 +1472,7 @@ void TestModule::onTimingStep() {
     *   Pools can report more than Carbon - simply a bucket with a Floating Point number, that modules can make moves to and from
 *   **Common Data: Variables (`IVariable`)**
     *   Used by the Modules to store data they may need to share with the implementation (other Modules).
-    *   For example: Boolean: `**TreeExists**` would be a boolean to tell other Modules that a tree has been planted.
+    *   For example: Boolean: `TreeExists` would be a boolean to tell other Modules that a tree has been planted.
     *   Variables can also be `moja::flint::ITransform `or `moja::flint::IFlintData`
     *   Transforms allow the system to replace a variable value with a value returned by the Transform - hence calling code that can make calculations and access current Pool, Variable and Provider values.
     *   For example: accessing a Spatial Layer from a `Provider` would automatically get the data for the current Lat & Lon
